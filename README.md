@@ -1,43 +1,70 @@
-# Astro Starter Kit: Minimal
+# moinax.com — Portfolio
 
-```sh
-npm create astro@latest -- --template minimal
+Le site portfolio de **Jérôme Poskin**, Frontend Lead & AI-Enhanced Developer.
+
+🌐 [moinax.com](https://www.moinax.com)
+
+## Stack
+
+- **[Astro](https://astro.build)** — Framework statique ultra-rapide
+- **[React](https://react.dev)** — Composants interactifs (animations, navigation)
+- **[Tailwind CSS v4](https://tailwindcss.com)** — Styling utilitaire, dark mode natif
+- **[Framer Motion](https://motion.dev)** — Animations fluides au scroll et au chargement
+- **[Lucide React](https://lucide.dev)** — Icônes SVG modernes
+
+## Démarrage rapide
+
+```bash
+# Installer les dépendances
+npm install
+
+# Lancer le serveur de développement
+npm run dev
+
+# Build de production
+npm run build
+
+# Prévisualiser le build
+npm run preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Structure du projet
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```
+src/
+├── components/
+│   ├── Navbar.tsx         # Navigation fixe avec menu mobile
+│   ├── Hero.tsx           # Section d'accroche avec animations
+│   ├── About.tsx          # Présentation + cartes "AI-Enhanced"
+│   ├── Experience.tsx     # Timeline des expériences professionnelles
+│   ├── Skills.tsx         # Grille de compétences par catégorie
+│   ├── Education.tsx      # Formation académique
+│   └── Contact.tsx        # Coordonnées et CTA
+├── layouts/
+│   └── Layout.astro       # Layout principal (meta, fonts, footer)
+├── pages/
+│   └── index.astro        # Page d'accueil (assemblage des sections)
+└── styles/
+    └── global.css          # Config Tailwind v4, palette custom, utilitaires
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Design
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- **Dark mode** avec fond `#050505` et dégradé radial subtil
+- **Glassmorphism** (`glass-card`) pour les cartes
+- **Dégradé signature** cyan → indigo (`text-gradient`)
+- **Typographie** Inter (Google Fonts)
+- **Animations** d'entrée au scroll via Framer Motion
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Déploiement
 
-## 🧞 Commands
+Le site est compatible avec tous les hébergeurs statiques (Vercel, Netlify, Cloudflare Pages...).
 
-All commands are run from the root of the project, from a terminal:
+```bash
+npm run build
+# Le dossier dist/ contient le site prêt à déployer
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Licence
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Privé — © Jérôme Poskin
