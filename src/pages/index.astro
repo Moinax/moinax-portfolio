@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Navbar } from '../components/Navbar';
+import { Hero } from '../components/Hero';
+import { About } from '../components/About';
+import { Experience } from '../components/Experience';
+import { Skills } from '../components/Skills';
+import { Education } from '../components/Education';
+import { Contact } from '../components/Contact';
+---
+
+<Layout title="Jérôme Poskin | Frontend Lead & AI-Enhanced Developer">
+	<Navbar client:load />
+	<div class="pt-16">
+		<Hero client:load />
+		<About client:load />
+		<Experience client:load />
+		<Skills client:load />
+		<Education client:load />
+		<Contact client:load />
+	</div>
+</Layout>
