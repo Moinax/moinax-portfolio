@@ -18,8 +18,13 @@ export default defineConfig({
     server: {
       allowedHosts: [
         'localhost',
-        '.trycloudflare.com',
-        'apparent-nirvana-surfaces-legends.trycloudflare.com',
+        'openclaw.taildade28.ts.net',
+      ],
+    },
+    preview: {
+      allowedHosts: [
+        'localhost',
+        'openclaw.taildade28.ts.net',
       ],
     }
   }
