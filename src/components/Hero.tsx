@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Sparkles, Bot, Code2, ArrowDown } from 'lucide-react';
+import { yearsOfExperience } from '../lib/constants';
 
 export const Hero = () => {
   return (
@@ -43,7 +44,7 @@ export const Hero = () => {
           transition={{ duration: 0.6, delay: 0.25 }}
           className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl"
         >
-          Senior Frontend Architect &amp; Lead Developer avec plus de 16 ans d'expérience. 
+          Senior Frontend Architect &amp; Lead Developer avec plus de {yearsOfExperience} ans d'expérience. 
           Je fusionne l'artisanat du code avec la puissance de l'IA pour créer 
           des interfaces d'exception.
         </motion.p>
@@ -66,7 +67,7 @@ export const Hero = () => {
         </div>
         <div className="w-px h-6 bg-slate-700" />
         <div className="flex items-center gap-2 text-slate-300">
-          <span className="font-medium text-slate-400">16+ ans d'XP</span>
+          <span className="font-medium text-slate-400">{yearsOfExperience}+ ans d'XP</span>
         </div>
       </motion.div>
 
