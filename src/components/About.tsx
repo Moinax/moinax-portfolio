@@ -46,12 +46,14 @@ export const About = () => {
           {t('about.title_line1')}<br />
           <span className="text-gradient">{t('about.title_line2')}</span>
         </h2>
+        {/* Safe: static translations — no user-generated content */}
         <p
           className="text-lg text-slate-400 leading-relaxed [&_strong]:text-slate-200"
           dangerouslySetInnerHTML={{
             __html: t('about.paragraph1', { years: yearsOfExperience }),
           }}
         />
+        {/* Safe: static translations — no user-generated content */}
         <p
           className="text-lg text-slate-400 leading-relaxed [&_em]:text-cyan-400 [&_em]:not-italic [&_em]:font-medium"
           dangerouslySetInnerHTML={{ __html: t('about.paragraph2') }}
