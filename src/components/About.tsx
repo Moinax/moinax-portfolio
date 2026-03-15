@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Brain, Zap, Layers, Cpu } from 'lucide-react';
+import { yearsOfExperience } from '../lib/constants';
 
 const highlights = [
   {
@@ -43,7 +44,7 @@ export const About = () => {
           <span className="text-gradient">L'IA en renfort.</span>
         </h2>
         <p className="text-lg text-slate-400 leading-relaxed">
-          Avec plus de 16 ans dans le développement web — de la co-fondation de l'agence 
+          Avec plus de {yearsOfExperience} ans dans le développement web — de la co-fondation de l'agence 
           <strong className="text-slate-200"> Snowcap</strong> (30 clients, 10 employés) aux missions de Lead Frontend 
           pour des startups comme <strong className="text-slate-200">Mbrella</strong> et <strong className="text-slate-200">Elium</strong> — 
           j'ai appris une chose : la technologie n'a de valeur que si elle sert l'humain.
