@@ -16,16 +16,16 @@ Le site portfolio de **Jérôme Poskin**, Frontend Lead & AI-Enhanced Developer.
 
 ```bash
 # Installer les dépendances
-npm install
+pnpm install
 
 # Lancer le serveur de développement
-npm run dev
+pnpm dev
 
 # Build de production
-npm run build
+pnpm build
 
 # Prévisualiser le build
-npm run preview
+pnpm preview
 ```
 
 ## Structure du projet
@@ -58,13 +58,19 @@ src/
 
 ## Déploiement
 
-Le site est compatible avec tous les hébergeurs statiques (Vercel, Netlify, Cloudflare Pages...).
+Le site est déployé automatiquement sur **Vercel** à chaque merge dans `main`.
 
-```bash
-npm run build
-# Le dossier dist/ contient le site prêt à déployer
-```
+| Environnement | URL |
+|---|---|
+| Production | [moinax.com](https://www.moinax.com) |
+| Preview | Généré automatiquement sur chaque PR |
+
+### Workflow
+
+1. Les changements sont proposés via **Pull Request**
+2. Vercel génère un **preview deploy** sur chaque PR
+3. Au merge dans `main` → deploy automatique en production
 
 ## Licence
 
-Privé — © Jérôme Poskin
+MIT — © Jérôme Poskin
