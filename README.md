@@ -1,70 +1,76 @@
 # moinax.com — Portfolio
 
-Le site portfolio de **Jérôme Poskin**, Frontend Lead & AI-Enhanced Developer.
+Personal portfolio website for **Jérôme Poskin**, Frontend Lead & AI-Enhanced Developer.
 
 🌐 [moinax.com](https://www.moinax.com)
 
 ## Stack
 
-- **[Astro](https://astro.build)** — Framework statique ultra-rapide
-- **[React](https://react.dev)** — Composants interactifs (animations, navigation)
-- **[Tailwind CSS v4](https://tailwindcss.com)** — Styling utilitaire, dark mode natif
-- **[Framer Motion](https://motion.dev)** — Animations fluides au scroll et au chargement
-- **[Lucide React](https://lucide.dev)** — Icônes SVG modernes
+- **[Astro](https://astro.build)** — Ultra-fast static framework
+- **[React](https://react.dev)** — Interactive components (animations, navigation)
+- **[Tailwind CSS v4](https://tailwindcss.com)** — Utility-first styling, native dark mode
+- **[Framer Motion](https://motion.dev)** — Smooth scroll and load animations
+- **[Lucide React](https://lucide.dev)** — Modern SVG icons
 
-## Démarrage rapide
+## Getting Started
 
 ```bash
-# Installer les dépendances
-npm install
+# Install dependencies
+pnpm install
 
-# Lancer le serveur de développement
-npm run dev
+# Start development server
+pnpm dev
 
-# Build de production
-npm run build
+# Production build
+pnpm build
 
-# Prévisualiser le build
-npm run preview
+# Preview the build
+pnpm preview
 ```
 
-## Structure du projet
+## Project Structure
 
 ```
 src/
 ├── components/
-│   ├── Navbar.tsx         # Navigation fixe avec menu mobile
-│   ├── Hero.tsx           # Section d'accroche avec animations
-│   ├── About.tsx          # Présentation + cartes "AI-Enhanced"
-│   ├── Experience.tsx     # Timeline des expériences professionnelles
-│   ├── Skills.tsx         # Grille de compétences par catégorie
-│   ├── Education.tsx      # Formation académique
-│   └── Contact.tsx        # Coordonnées et CTA
+│   ├── Navbar.tsx         # Fixed navigation with mobile menu
+│   ├── Hero.tsx           # Hero section with animations
+│   ├── About.tsx          # Introduction + "AI-Enhanced" cards
+│   ├── Experience.tsx     # Professional experience timeline
+│   ├── Skills.tsx         # Skills grid by category
+│   ├── Education.tsx      # Academic background
+│   └── Contact.tsx        # Contact info and CTA
 ├── layouts/
-│   └── Layout.astro       # Layout principal (meta, fonts, footer)
+│   └── Layout.astro       # Main layout (meta, fonts, footer)
 ├── pages/
-│   └── index.astro        # Page d'accueil (assemblage des sections)
+│   └── index.astro        # Home page (section assembly)
 └── styles/
-    └── global.css          # Config Tailwind v4, palette custom, utilitaires
+    └── global.css          # Tailwind v4 config, custom palette, utilities
 ```
 
 ## Design
 
-- **Dark mode** avec fond `#050505` et dégradé radial subtil
-- **Glassmorphism** (`glass-card`) pour les cartes
-- **Dégradé signature** cyan → indigo (`text-gradient`)
-- **Typographie** Inter (Google Fonts)
-- **Animations** d'entrée au scroll via Framer Motion
+- **Dark mode** with `#050505` background and subtle radial gradient
+- **Glassmorphism** (`glass-card`) for cards
+- **Signature gradient** cyan → indigo (`text-gradient`)
+- **Typography** Inter (Google Fonts)
+- **Scroll-triggered animations** via Framer Motion
 
-## Déploiement
+## Deployment
 
-Le site est compatible avec tous les hébergeurs statiques (Vercel, Netlify, Cloudflare Pages...).
+The site is automatically deployed to **Vercel** on every merge to `main`.
 
-```bash
-npm run build
-# Le dossier dist/ contient le site prêt à déployer
-```
+| Environment | URL |
+|---|---|
+| Production | [moinax.com](https://www.moinax.com) |
+| Preview | Auto-generated on each PR |
 
-## Licence
+### Workflow
 
-Privé — © Jérôme Poskin
+1. Changes are proposed via **Pull Request**
+2. Vercel generates a **preview deploy** on each PR
+3. On merge to `main` → automatic production deploy
+
+## License
+
+MIT — © Jérôme Poskin
