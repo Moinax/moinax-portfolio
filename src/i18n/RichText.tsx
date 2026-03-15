@@ -1,4 +1,4 @@
-import { type ReactNode, type ElementType, Fragment } from 'react';
+import { type ReactNode, Fragment } from 'react';
 
 type TagRenderer = (children: string) => ReactNode;
 
@@ -9,7 +9,7 @@ const DEFAULT_TAGS: Record<string, TagRenderer> = {
 
 interface RichTextProps {
   text: string;
-  as?: ElementType;
+  as?: keyof JSX.IntrinsicElements;
   className?: string;
   tags?: Record<string, TagRenderer>;
 }
@@ -19,6 +19,10 @@ interface RichTextProps {
  * and renders them as React elements. Does NOT support nesting.
  */
 export function RichText({ text, as: Tag = 'span', className, tags }: RichTextProps) {
+  if (!text) {
+    return <Tag className={className} />;
+  }
+
   const allTags = { ...DEFAULT_TAGS, ...tags };
   const escapeRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const tagNames = Object.keys(allTags).map(escapeRegex).join('|');
