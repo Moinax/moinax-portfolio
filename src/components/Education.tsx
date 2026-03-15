@@ -1,20 +1,23 @@
 import { motion } from 'framer-motion';
 import { GraduationCap } from 'lucide-react';
+import { useTranslation } from '../i18n/useTranslation';
 
 const education = [
   {
-    period: "1998 — 2002",
-    institution: "Institut Paul Lambin",
-    degree: "Analyse & Développement",
+    period: '1998 — 2002',
+    institution: 'Institut Paul Lambin',
+    degreeKey: 'education.ipl.degree',
   },
   {
-    period: "1994 — 1998",
-    institution: "Collège Notre-Dame de Val Duchesse",
-    degree: "Secondaire Supérieur — Mathématiques & Langues",
+    period: '1994 — 1998',
+    institution: 'Collège Notre-Dame de Val Duchesse',
+    degreeKey: 'education.ndvd.degree',
   },
 ];
 
 export const Education = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="py-16 space-y-8">
       <motion.h2
@@ -24,7 +27,7 @@ export const Education = () => {
         transition={{ duration: 0.5 }}
         className="text-4xl font-bold"
       >
-        Formation<span className="text-gradient">.</span>
+        {t('education.title')}<span className="text-gradient">.</span>
       </motion.h2>
 
       <div className="space-y-4">
@@ -43,7 +46,7 @@ export const Education = () => {
                 <span className="text-sm text-slate-500 font-mono">{e.period}</span>
                 <h3 className="font-bold">{e.institution}</h3>
               </div>
-              <p className="text-sm text-slate-400 mt-1">{e.degree}</p>
+              <p className="text-sm text-slate-400 mt-1">{t(e.degreeKey)}</p>
             </div>
           </motion.div>
         ))}

@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
 import { Sparkles, Bot, Code2, ArrowDown } from 'lucide-react';
 import { yearsOfExperience } from '../lib/constants';
+import { useTranslation } from '../i18n/useTranslation';
 
 export const Hero = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="min-h-[85vh] flex flex-col justify-center items-start space-y-8 py-20 relative">
       {/* Ambient glow */}
@@ -16,7 +19,7 @@ export const Hero = () => {
         className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm font-medium"
       >
         <Bot size={16} />
-        <span>AI-Enhanced Developer</span>
+        <span>{t('hero.badge')}</span>
       </motion.div>
 
       <div className="space-y-6 max-w-4xl">
@@ -35,7 +38,7 @@ export const Hero = () => {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="text-2xl sm:text-3xl md:text-4xl font-bold text-gradient leading-tight"
         >
-          Engineering the Future of Web.
+          {t('hero.tagline')}
         </motion.p>
 
         <motion.p
@@ -44,9 +47,7 @@ export const Hero = () => {
           transition={{ duration: 0.6, delay: 0.25 }}
           className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl"
         >
-          Senior Frontend Architect &amp; Lead Developer avec plus de {yearsOfExperience} ans d'expérience. 
-          Je fusionne l'artisanat du code avec la puissance de l'IA pour créer 
-          des interfaces d'exception.
+          {t('hero.description', { years: yearsOfExperience })}
         </motion.p>
       </div>
 
@@ -58,16 +59,16 @@ export const Hero = () => {
       >
         <div className="flex items-center gap-2 text-slate-300">
           <Code2 size={20} className="text-indigo-400" />
-          <span className="font-medium">React Expert</span>
+          <span className="font-medium">{t('hero.react_expert')}</span>
         </div>
         <div className="w-px h-6 bg-slate-700" />
         <div className="flex items-center gap-2 text-slate-300">
           <Sparkles size={20} className="text-cyan-400" />
-          <span className="font-medium">AI-Powered Workflow</span>
+          <span className="font-medium">{t('hero.ai_workflow')}</span>
         </div>
         <div className="w-px h-6 bg-slate-700" />
         <div className="flex items-center gap-2 text-slate-300">
-          <span className="font-medium text-slate-400">{yearsOfExperience}+ ans d'XP</span>
+          <span className="font-medium text-slate-400">{t('hero.xp_years', { years: yearsOfExperience })}</span>
         </div>
       </motion.div>
 

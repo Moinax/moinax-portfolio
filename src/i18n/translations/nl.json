@@ -1,0 +1,87 @@
+{
+  "nav.about": "Over mij",
+  "nav.experience": "Ervaring",
+  "nav.skills": "Vaardigheden",
+  "nav.contact": "Contact",
+
+  "hero.badge": "AI-Enhanced Developer",
+  "hero.tagline": "Engineering the Future of Web.",
+  "hero.description": "Senior Frontend Architect & Lead Developer met meer dan {years} jaar ervaring. Ik combineer vakmanschap in code met de kracht van AI om uitzonderlijke interfaces te creëren.",
+  "hero.react_expert": "React Expert",
+  "hero.ai_workflow": "AI-Powered Workflow",
+  "hero.xp_years": "{years}+ jaar ervaring",
+
+  "about.title_line1": "De mens eerst.",
+  "about.title_line2": "AI als versterking.",
+  "about.paragraph1": "Met meer dan {years} jaar in webontwikkeling — van het medeoprichten van bureau <strong>Snowcap</strong> (30 klanten, 10 medewerkers) tot Lead Frontend-rollen voor startups zoals <strong>Mbrella</strong> en <strong>Elium</strong> — heb ik één ding geleerd: technologie heeft alleen waarde als ze de mens dient.",
+  "about.paragraph2": "Vandaag versterk ik deze filosofie met Artificiële Intelligentie. Niet om menselijke creativiteit te vervangen, maar om ze te <em>vermenigvuldigen</em>.",
+
+  "about.highlight.copilot.title": "AI Copiloot",
+  "about.highlight.copilot.desc": "Ik integreer de meest geavanceerde LLMs in mijn dagelijkse workflow: codegeneratie, geautomatiseerde review, testen, documentatie.",
+  "about.highlight.delivery.title": "Versnelde Oplevering",
+  "about.highlight.delivery.desc": "AI stelt me in staat om ontwikkelcycli drastisch te verkorten met behoud van hoge kwaliteitsnormen.",
+  "about.highlight.design.title": "Design Systems",
+  "about.highlight.design.desc": "Ontwerp en implementatie van schaalbare design systems, met garantie op visuele consistentie en onderhoudbaarheid.",
+  "about.highlight.architecture.title": "Frontend Architectuur",
+  "about.highlight.architecture.desc": "Structurering van complexe React-applicaties, prestatieoptimalisatie en invoering van best practices.",
+
+  "experience.title": "Loopbaan",
+
+  "experience.mbrella.period": "2021 — Heden",
+  "experience.mbrella.role": "Frontend Lead Developer",
+  "experience.mbrella.description": "Bouw van een HR-platform voor flexibele mobiliteit: gepersonaliseerde mobiliteitsplannen, beheer van openbaar vervoer, mobiliteitsbudgetten. Grootschalige React-architectuur in full remote.",
+
+  "experience.theglue.period": "2019 — 2020",
+  "experience.theglue.role": "Frontend Lead & UX Advisor",
+  "experience.theglue.description": "Creatie van een 100% digitaal online leenplatform, van aanvraag tot ondertekening. Focus op UX en prestaties.",
+
+  "experience.apex.period": "2019",
+  "experience.apex.role": "Discord Bot Developer",
+  "experience.apex.description": "Discord-bot die dynamische spraakkanalen genereert voor de gamingcommunity: trio-matchmaking, namen gegenereerd uit de game-lore.",
+
+  "experience.tomorrowland.period": "2019",
+  "experience.tomorrowland.role": "Web Developer",
+  "experience.tomorrowland.description": "Responsief 3D interactief spel om Tomorrowland Winter-tickets te winnen. Gesynchroniseerde animaties, meeslepend geluid.",
+
+  "experience.elium.period": "2017 — 2019",
+  "experience.elium.role": "Web Developer",
+  "experience.elium.description": "Frontend-expertise op een grootschalig Knowledge Management-platform. Introductie van geavanceerde responsive en UX-patronen.",
+
+  "experience.emakina2.period": "2016 — 2017",
+  "experience.emakina2.role": "Web Developer & React Evangelist",
+  "experience.emakina2.description": "Evangelisatie van React.js binnen het bureau. Teamtraining en implementatie van het eerste Electron + React-project.",
+
+  "experience.jackmedia.period": "2015 — 2016",
+  "experience.jackmedia.role": "Web Architect",
+  "experience.jackmedia.description": "Architectuur van een next-generation berichtenplatform gebaseerd op cloud micro-services en een universele taal.",
+
+  "experience.snowcap.period": "2010 — 2015",
+  "experience.snowcap.role": "Medeoprichter",
+  "experience.snowcap.description": "Oprichting en leiding van een open-source ontwikkelbureau. In 5 jaar: 30+ klanten (Pairidaiza, Walibi, Eggo, Opéra de Liège...) en 10 medewerkers. Focus op kwaliteit en ondersteuning van startups.",
+
+  "experience.emakina1.period": "2008 — 2010",
+  "experience.emakina1.role": "Expert PHP Developer",
+  "experience.emakina1.description": "Leiding van een Drupal-team: coaching, best practices, technische schattingen. CMS-ontwikkeling voor grote klanten.",
+
+  "experience.symex.period": "2002 — 2008",
+  "experience.symex.role": "Team Leader & IT Developer",
+  "experience.symex.description": "Ontwikkeling van real-time beurskoersen, financiële portalen en een communicatieplatform voor de Europese Transparantierichtlijn.",
+
+  "skills.title": "Stack",
+  "skills.frontend": "Frontend",
+  "skills.styling": "Styling & Design",
+  "skills.data": "Data & API",
+  "skills.ai": "Artificiële Intelligentie",
+  "skills.tools": "Tools & Methodologie",
+
+  "education.title": "Opleiding",
+  "education.ipl.degree": "Analyse & Ontwikkeling",
+  "education.ndvd.degree": "Hoger Secundair — Wiskunde & Talen",
+
+  "contact.title": "Laten we <highlight>samenwerken.</highlight>",
+  "contact.description": "Op zoek naar een Frontend Lead die uw React-project kan structureren, de gebruikerservaring kan verbeteren en AI in uw workflow kan integreren? Laten we praten.",
+  "contact.location": "Brussel, België — Full Remote",
+  "contact.languages": "Frans (moedertaal) · Engels (vloeiend) · Nederlands (basis)",
+
+  "footer.copyright": "© {year} Jérôme Poskin. Crafted with Astro & AI."
+}

@@ -1,16 +1,19 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-
-const links = [
-  { label: 'À propos', href: '#about' },
-  { label: 'Expérience', href: '#experience' },
-  { label: 'Compétences', href: '#skills' },
-  { label: 'Contact', href: '#contact' },
-];
+import { useTranslation } from '../i18n/useTranslation';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const { t } = useTranslation();
+
+  const links = [
+    { label: t('nav.about'), href: '#about' },
+    { label: t('nav.experience'), href: '#experience' },
+    { label: t('nav.skills'), href: '#skills' },
+    { label: t('nav.contact'), href: '#contact' },
+  ];
 
   return (
     <motion.nav
@@ -35,6 +38,8 @@ export const Navbar = () => {
               {l.label}
             </a>
           ))}
+          <div className="w-px h-4 bg-white/10" />
+          <LanguageSwitcher />
         </div>
 
         {/* Mobile toggle */}
@@ -65,6 +70,10 @@ export const Navbar = () => {
                 {l.label}
               </a>
             ))}
+            <div className="h-px bg-white/10 my-2" />
+            <div className="flex justify-center">
+              <LanguageSwitcher size="mobile" />
+            </div>
           </div>
         </motion.div>
       )}

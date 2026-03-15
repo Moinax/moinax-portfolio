@@ -1,7 +1,11 @@
 import { motion } from 'framer-motion';
 import { Mail, Globe, MapPin, Languages } from 'lucide-react';
+import { useTranslation } from '../i18n/useTranslation';
+import { RichText } from '../i18n/RichText';
 
 export const Contact = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="contact" className="py-24 space-y-12">
       <motion.div
@@ -11,13 +15,14 @@ export const Contact = () => {
         transition={{ duration: 0.6 }}
         className="max-w-2xl space-y-6"
       >
-        <h2 className="text-4xl font-bold">
-          Travaillons <span className="text-gradient">ensemble.</span>
-        </h2>
+        <RichText
+          as="h2"
+          className="text-4xl font-bold"
+          text={t('contact.title')}
+          tags={{ highlight: (c) => <span className="text-gradient">{c}</span> }}
+        />
         <p className="text-lg text-slate-400 leading-relaxed">
-          Vous cherchez un Frontend Lead capable de structurer votre projet React, 
-          d'améliorer l'expérience utilisateur et d'intégrer l'IA dans votre workflow ? 
-          Parlons-en.
+          {t('contact.description')}
         </p>
       </motion.div>
 
@@ -48,12 +53,12 @@ export const Contact = () => {
 
         <div className="flex items-center gap-3 text-slate-400">
           <MapPin size={20} className="text-emerald-400" />
-          <span>Bruxelles, Belgique — Full Remote</span>
+          <span>{t('contact.location')}</span>
         </div>
 
         <div className="flex items-center gap-3 text-slate-400">
           <Languages size={20} className="text-yellow-400" />
-          <span>Français (natif) · English (fluent) · Nederlands (bases)</span>
+          <span>{t('contact.languages')}</span>
         </div>
       </motion.div>
     </section>

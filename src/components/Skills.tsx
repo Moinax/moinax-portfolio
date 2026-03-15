@@ -1,34 +1,37 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from '../i18n/useTranslation';
 
 interface SkillGroup {
-  category: string;
+  categoryKey: string;
   items: string[];
 }
 
 const skillGroups: SkillGroup[] = [
   {
-    category: "Frontend",
-    items: ["React.js", "Next.js", "TypeScript", "Astro", "Electron"],
+    categoryKey: 'skills.frontend',
+    items: ['React.js', 'Next.js', 'TypeScript', 'Astro', 'Electron'],
   },
   {
-    category: "Styling & Design",
-    items: ["Tailwind CSS", "Sass/SCSS", "Design Systems", "Responsive Design", "Accessibility"],
+    categoryKey: 'skills.styling',
+    items: ['Tailwind CSS', 'Sass/SCSS', 'Design Systems', 'Responsive Design', 'Accessibility'],
   },
   {
-    category: "Data & API",
-    items: ["GraphQL", "Relay", "Redux", "REST APIs", "Node.js"],
+    categoryKey: 'skills.data',
+    items: ['GraphQL', 'Relay', 'Redux', 'REST APIs', 'Node.js'],
   },
   {
-    category: "Intelligence Artificielle",
-    items: ["LLM Integration", "AI Agents", "Prompt Engineering", "Copilot Workflows", "Automated Code Review"],
+    categoryKey: 'skills.ai',
+    items: ['LLM Integration', 'AI Agents', 'Prompt Engineering', 'Copilot Workflows', 'Automated Code Review'],
   },
   {
-    category: "Outils & Méthodologie",
-    items: ["Git", "Webpack", "Vite", "Agile/Scrum", "CI/CD"],
+    categoryKey: 'skills.tools',
+    items: ['Git', 'Webpack', 'Vite', 'Agile/Scrum', 'CI/CD'],
   },
 ];
 
 export const Skills = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="skills" className="py-24 space-y-12">
       <motion.h2
@@ -38,13 +41,13 @@ export const Skills = () => {
         transition={{ duration: 0.5 }}
         className="text-4xl font-bold"
       >
-        Stack<span className="text-gradient">.</span>
+        {t('skills.title')}<span className="text-gradient">.</span>
       </motion.h2>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {skillGroups.map((group, i) => (
           <motion.div
-            key={group.category}
+            key={group.categoryKey}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -52,7 +55,7 @@ export const Skills = () => {
             className="glass-card p-6 space-y-4 hover:border-white/20 transition-colors"
           >
             <h3 className="text-sm font-bold uppercase tracking-wider text-cyan-400">
-              {group.category}
+              {t(group.categoryKey)}
             </h3>
             <div className="flex flex-wrap gap-2">
               {group.items.map((item) => (
