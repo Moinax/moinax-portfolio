@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Brain, Zap, Layers, Cpu } from 'lucide-react';
 import { yearsOfExperience } from '../lib/constants';
 import { useTranslation } from '../i18n/useTranslation';
+import { RichText } from '../i18n/RichText';
 
 export const About = () => {
   const { t } = useTranslation();
@@ -46,17 +47,15 @@ export const About = () => {
           {t('about.title_line1')}<br />
           <span className="text-gradient">{t('about.title_line2')}</span>
         </h2>
-        {/* Safe: static translations — no user-generated content */}
-        <p
+        <RichText
+          as="p"
           className="text-lg text-slate-400 leading-relaxed [&_strong]:text-slate-200"
-          dangerouslySetInnerHTML={{
-            __html: t('about.paragraph1', { years: yearsOfExperience }),
-          }}
+          text={t('about.paragraph1', { years: yearsOfExperience })}
         />
-        {/* Safe: static translations — no user-generated content */}
-        <p
+        <RichText
+          as="p"
           className="text-lg text-slate-400 leading-relaxed [&_em]:text-cyan-400 [&_em]:not-italic [&_em]:font-medium"
-          dangerouslySetInnerHTML={{ __html: t('about.paragraph2') }}
+          text={t('about.paragraph2')}
         />
       </motion.div>
 

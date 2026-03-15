@@ -78,8 +78,7 @@
   "education.ipl.degree": "Analysis & Development",
   "education.ndvd.degree": "Secondary Education — Mathematics & Languages",
 
-  "contact.title_prefix": "Let's work",
-  "contact.title_highlight": "together.",
+  "contact.title": "Let's work <highlight>together.</highlight>",
   "contact.description": "Looking for a Frontend Lead who can structure your React project, improve user experience, and integrate AI into your workflow? Let's talk.",
   "contact.location": "Brussels, Belgium — Full Remote",
   "contact.languages": "French (native) · English (fluent) · Dutch (basic)",

@@ -78,8 +78,7 @@
   "education.ipl.degree": "Analyse & Ontwikkeling",
   "education.ndvd.degree": "Hoger Secundair — Wiskunde & Talen",
 
-  "contact.title_prefix": "Laten we",
-  "contact.title_highlight": "samenwerken.",
+  "contact.title": "Laten we <highlight>samenwerken.</highlight>",
   "contact.description": "Op zoek naar een Frontend Lead die uw React-project kan structureren, de gebruikerservaring kan verbeteren en AI in uw workflow kan integreren? Laten we praten.",
   "contact.location": "Brussel, België — Full Remote",
   "contact.languages": "Frans (moedertaal) · Engels (vloeiend) · Nederlands (basis)",

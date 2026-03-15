@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Mail, Globe, MapPin, Languages } from 'lucide-react';
 import { useTranslation } from '../i18n/useTranslation';
+import { RichText } from '../i18n/RichText';
 
 export const Contact = () => {
   const { t } = useTranslation();
@@ -14,9 +15,12 @@ export const Contact = () => {
         transition={{ duration: 0.6 }}
         className="max-w-2xl space-y-6"
       >
-        <h2 className="text-4xl font-bold">
-          {t('contact.title_prefix')} <span className="text-gradient">{t('contact.title_highlight')}</span>
-        </h2>
+        <RichText
+          as="h2"
+          className="text-4xl font-bold"
+          text={t('contact.title')}
+          tags={{ highlight: (c) => <span className="text-gradient">{c}</span> }}
+        />
         <p className="text-lg text-slate-400 leading-relaxed">
           {t('contact.description')}
         </p>
