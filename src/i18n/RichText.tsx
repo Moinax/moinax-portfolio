@@ -20,7 +20,8 @@ interface RichTextProps {
  */
 export function RichText({ text, as: Tag = 'span', className, tags }: RichTextProps) {
   const allTags = { ...DEFAULT_TAGS, ...tags };
-  const tagNames = Object.keys(allTags).join('|');
+  const escapeRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const tagNames = Object.keys(allTags).map(escapeRegex).join('|');
   const regex = new RegExp(`<(${tagNames})>(.*?)</\\1>`, 'g');
 
   const parts: ReactNode[] = [];
