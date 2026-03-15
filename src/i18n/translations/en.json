@@ -1,0 +1,88 @@
+{
+  "nav.about": "About",
+  "nav.experience": "Experience",
+  "nav.skills": "Skills",
+  "nav.contact": "Contact",
+
+  "hero.badge": "AI-Enhanced Developer",
+  "hero.tagline": "Engineering the Future of Web.",
+  "hero.description": "Senior Frontend Architect & Lead Developer with over {years} years of experience. I blend the craft of code with the power of AI to create exceptional interfaces.",
+  "hero.react_expert": "React Expert",
+  "hero.ai_workflow": "AI-Powered Workflow",
+  "hero.xp_years": "{years}+ years of XP",
+
+  "about.title_line1": "Human first.",
+  "about.title_line2": "AI as a force multiplier.",
+  "about.paragraph1": "With over {years} years in web development — from co-founding the <strong>Snowcap</strong> agency (30 clients, 10 employees) to Lead Frontend roles for startups like <strong>Mbrella</strong> and <strong>Elium</strong> — I've learned one thing: technology only matters when it serves people.",
+  "about.paragraph2": "Today, I amplify this philosophy with Artificial Intelligence. Not to replace human creativity, but to <em>multiply</em> it.",
+
+  "about.highlight.copilot.title": "AI Copilot",
+  "about.highlight.copilot.desc": "I integrate the most advanced LLMs into my daily workflow: code generation, automated review, testing, documentation.",
+  "about.highlight.delivery.title": "Accelerated Delivery",
+  "about.highlight.delivery.desc": "AI allows me to drastically reduce development cycles while maintaining high quality standards.",
+  "about.highlight.design.title": "Design Systems",
+  "about.highlight.design.desc": "Design and implementation of scalable design systems, ensuring visual consistency and maintainability.",
+  "about.highlight.architecture.title": "Frontend Architecture",
+  "about.highlight.architecture.desc": "Structuring complex React applications, performance optimization, and establishing best practices.",
+
+  "experience.title": "Experience",
+
+  "experience.mbrella.period": "2021 — Present",
+  "experience.mbrella.role": "Frontend Lead Developer",
+  "experience.mbrella.description": "Building an HR platform for flexible mobility: personalized mobility plans, public transport management, mobility budgets. Large-scale React architecture in full remote.",
+
+  "experience.theglue.period": "2019 — 2020",
+  "experience.theglue.role": "Frontend Lead & UX Advisor",
+  "experience.theglue.description": "Creation of a 100% digital online lending platform, from application to signature. UX and performance focused.",
+
+  "experience.apex.period": "2019",
+  "experience.apex.role": "Discord Bot Developer",
+  "experience.apex.description": "Discord bot generating dynamic voice channels for the gaming community: trio matchmaking, names generated from game lore.",
+
+  "experience.tomorrowland.period": "2019",
+  "experience.tomorrowland.role": "Web Developer",
+  "experience.tomorrowland.description": "Responsive 3D interactive game to win Tomorrowland Winter tickets. Synchronized animations, immersive sound.",
+
+  "experience.elium.period": "2017 — 2019",
+  "experience.elium.role": "Web Developer",
+  "experience.elium.description": "Frontend expertise on a large-scale Knowledge Management platform. Introduction of advanced responsive and UX patterns.",
+
+  "experience.emakina2.period": "2016 — 2017",
+  "experience.emakina2.role": "Web Developer & React Evangelist",
+  "experience.emakina2.description": "Evangelizing React.js within the agency. Team training and implementation of the first Electron + React project.",
+
+  "experience.jackmedia.period": "2015 — 2016",
+  "experience.jackmedia.role": "Web Architect",
+  "experience.jackmedia.description": "Architecture of a next-generation messaging platform based on cloud micro-services and a universal language.",
+
+  "experience.snowcap.period": "2010 — 2015",
+  "experience.snowcap.role": "Co-Founder",
+  "experience.snowcap.description": "Creation and management of an open-source development agency. In 5 years: 30+ clients (Pairidaiza, Walibi, Eggo, Opéra de Liège...) and 10 employees. Focus on quality and startup support.",
+
+  "experience.emakina1.period": "2008 — 2010",
+  "experience.emakina1.role": "Expert PHP Developer",
+  "experience.emakina1.description": "Leading a Drupal team: coaching, best practices, technical estimates. CMS development for major clients.",
+
+  "experience.symex.period": "2002 — 2008",
+  "experience.symex.role": "Team Leader & IT Developer",
+  "experience.symex.description": "Development of real-time stock market feeds, financial portals, and a communication platform for the European Transparency Directive.",
+
+  "skills.title": "Stack",
+  "skills.frontend": "Frontend",
+  "skills.styling": "Styling & Design",
+  "skills.data": "Data & API",
+  "skills.ai": "Artificial Intelligence",
+  "skills.tools": "Tools & Methodology",
+
+  "education.title": "Education",
+  "education.ipl.degree": "Analysis & Development",
+  "education.ndvd.degree": "Secondary Education — Mathematics & Languages",
+
+  "contact.title_prefix": "Let's work",
+  "contact.title_highlight": "together.",
+  "contact.description": "Looking for a Frontend Lead who can structure your React project, improve user experience, and integrate AI into your workflow? Let's talk.",
+  "contact.location": "Brussels, Belgium — Full Remote",
+  "contact.languages": "French (native) · English (fluent) · Dutch (basic)",
+
+  "footer.copyright": "© {year} Jérôme Poskin. Crafted with Astro & AI."
+}
