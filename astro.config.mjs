@@ -1,12 +1,16 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-
-import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 
-// https://astro.build/config
 export default defineConfig({
-  integrations: [react()],
+  i18n: {
+    locales: ['en', 'fr', 'nl'],
+    defaultLocale: 'en',
+    routing: {
+      prefixDefaultLocale: true,
+      redirectToDefaultLocale: false,
+    },
+  },
 
   server: {
     host: '0.0.0.0',
@@ -17,16 +21,10 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     server: {
-      allowedHosts: [
-        'localhost',
-        'openclaw.taildade28.ts.net',
-      ],
+      allowedHosts: ['localhost', 'openclaw.taildade28.ts.net'],
     },
     preview: {
-      allowedHosts: [
-        'localhost',
-        'openclaw.taildade28.ts.net',
-      ],
-    }
-  }
+      allowedHosts: ['localhost', 'openclaw.taildade28.ts.net'],
+    },
+  },
 });

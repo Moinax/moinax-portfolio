@@ -1,0 +1,65 @@
+---
+import type { Locale } from '../i18n/index';
+import { t } from '../i18n/t';
+import { yearsOfExperience } from '../lib/constants';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const highlights = [
+  {
+    titleKey: 'about.highlight.copilot.title',
+    descKey: 'about.highlight.copilot.desc',
+    color: 'text-cyan-400',
+    // Brain icon path
+    icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path stroke-linecap="round" stroke-linejoin="round" d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path stroke-linecap="round" stroke-linejoin="round" d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path stroke-linecap="round" stroke-linejoin="round" d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.938 10.5a4 4 0 0 1 .585.396"/><path stroke-linecap="round" stroke-linejoin="round" d="M6 18a4 4 0 0 1-1.967-.516"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.967 17.484A4 4 0 0 1 18 18"/>',
+  },
+  {
+    titleKey: 'about.highlight.delivery.title',
+    descKey: 'about.highlight.delivery.desc',
+    color: 'text-yellow-400',
+    // Zap icon path
+    icon: '<path stroke-linecap="round" stroke-linejoin="round" d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>',
+  },
+  {
+    titleKey: 'about.highlight.design.title',
+    descKey: 'about.highlight.design.desc',
+    color: 'text-indigo-400',
+    // Layers icon path
+    icon: '<path stroke-linecap="round" stroke-linejoin="round" d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path stroke-linecap="round" stroke-linejoin="round" d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>',
+  },
+  {
+    titleKey: 'about.highlight.architecture.title',
+    descKey: 'about.highlight.architecture.desc',
+    color: 'text-emerald-400',
+    // Cpu icon path
+    icon: '<rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/>',
+  },
+];
+---
+
+<section id="about" class="py-24 space-y-16">
+  <div class="max-w-3xl space-y-6 scroll-fade-up">
+    <h2 class="text-4xl font-bold">
+      {t(locale, 'about.title_line1')}<br />
+      <span class="text-gradient">{t(locale, 'about.title_line2')}</span>
+    </h2>
+    <p class="text-lg text-slate-400 leading-relaxed [&_strong]:text-slate-200" set:html={t(locale, 'about.paragraph1', { years: yearsOfExperience })} />
+    <p class="text-lg text-slate-400 leading-relaxed [&_em]:text-cyan-400 [&_em]:not-italic [&_em]:font-medium" set:html={t(locale, 'about.paragraph2')} />
+  </div>
+
+  <div class="grid sm:grid-cols-2 gap-6">
+    {highlights.map((h, i) => (
+      <div class="glass-card p-6 space-y-3 group hover:border-white/20 transition-colors scroll-fade-up" style={`--delay: ${i * 100}ms;`}>
+        <div class="flex items-center gap-3">
+          <svg class:list={['w-[22px] h-[22px] shrink-0', h.color]} fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" set:html={h.icon} />
+          <h3 class="font-bold text-lg">{t(locale, h.titleKey)}</h3>
+        </div>
+        <p class="text-slate-400 text-sm leading-relaxed">{t(locale, h.descKey)}</p>
+      </div>
+    ))}
+  </div>
+</section>

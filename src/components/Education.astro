@@ -1,0 +1,37 @@
+---
+import type { Locale } from '../i18n/index';
+import { t } from '../i18n/t';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const education = [
+  { period: '1998 — 2002', institution: 'Institut Paul Lambin', degreeKey: 'education.ipl.degree' },
+  { period: '1994 — 1998', institution: 'Collège Notre-Dame de Val Duchesse', degreeKey: 'education.ndvd.degree' },
+];
+---
+
+<section class="py-16 space-y-8">
+  <h2 class="text-4xl font-bold scroll-fade-up">
+    {t(locale, 'education.title')}<span class="text-gradient">.</span>
+  </h2>
+
+  <div class="space-y-4">
+    {education.map((e, i) => (
+      <div class="flex items-start gap-4 glass-card p-5 scroll-fade-up" style={`--delay: ${i * 100}ms;`}>
+        <!-- GraduationCap icon -->
+        <svg class="w-6 h-6 text-indigo-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+        <div>
+          <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3">
+            <span class="text-sm text-slate-500 font-mono">{e.period}</span>
+            <h3 class="font-bold">{e.institution}</h3>
+          </div>
+          <p class="text-sm text-slate-400 mt-1">{t(locale, e.degreeKey)}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
