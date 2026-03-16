@@ -17,7 +17,7 @@ const links = [
 ];
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-bg-deep/80 border-b border-white/5 fade-in-down">
+<nav aria-label="Main navigation" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-bg-deep/80 border-b border-white/5 fade-in-down">
   <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
     <a href={`/${locale}/`} class="text-lg font-bold tracking-tight hover:text-cyan-400 transition-colors">
       J<span class="text-gradient">P</span>
@@ -35,9 +35,9 @@ const links = [
     </div>
 
     <!-- Mobile toggle -->
-    <button id="nav-toggle" class="md:hidden text-slate-400 hover:text-white" aria-label="Menu">
-      <svg id="icon-menu" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
-      <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+    <button id="nav-toggle" class="md:hidden text-slate-400 hover:text-white" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+      <svg id="icon-menu" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+      <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
     </button>
   </div>
 
@@ -68,6 +68,7 @@ const links = [
     const isNowHidden = menu.classList.toggle('hidden');
     iconMenu.classList.toggle('hidden', !isNowHidden);
     iconClose.classList.toggle('hidden', isNowHidden);
+    toggle.setAttribute('aria-expanded', String(!isNowHidden));
   }
 
   toggle.addEventListener('click', toggleMenu);
@@ -75,5 +76,6 @@ const links = [
     menu.classList.add('hidden');
     iconMenu.classList.remove('hidden');
     iconClose.classList.add('hidden');
+    toggle.setAttribute('aria-expanded', 'false');
   }));
 </script>

@@ -54,9 +54,9 @@ const { locale } = Astro.props;
   </div>
 
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 fade-in" style="--delay: 1000ms;">
-    <a href="#about" class="text-slate-600 hover:text-cyan-400 transition-colors">
+    <a href="#about" class="text-slate-600 hover:text-cyan-400 transition-colors" aria-label="Scroll to about section">
       <!-- ArrowDown icon -->
-      <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14"/><path stroke-linecap="round" stroke-linejoin="round" d="m19 12-7 7-7-7"/></svg>
+      <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14"/><path stroke-linecap="round" stroke-linejoin="round" d="m19 12-7 7-7-7"/></svg>
     </a>
   </div>
 </section>
