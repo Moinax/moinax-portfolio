@@ -1,0 +1,59 @@
+---
+import { t } from '../i18n/t';
+import type { Locale } from '../i18n/index';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+// Process the contact.title to handle <highlight> tags
+const contactTitle = t(locale, 'contact.title').replace(
+  /<highlight>(.*?)<\/highlight>/,
+  '<span class="text-gradient">$1</span>'
+);
+---
+
+<section id="contact" class="py-24 space-y-12">
+  <div class="animate-on-scroll max-w-2xl space-y-6">
+    <h2 class="text-4xl font-bold" set:html={contactTitle} />
+    <p class="text-lg text-slate-400 leading-relaxed">
+      {t(locale, 'contact.description')}
+    </p>
+  </div>
+
+  <div class="animate-on-scroll glass-card p-8 max-w-lg space-y-5" style="--animation-delay: 100ms">
+    <a
+      href="mailto:hello@moinax.com"
+      class="flex items-center gap-3 text-slate-300 hover:text-cyan-400 transition-colors group"
+    >
+      {/* Mail icon */}
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-cyan-400 group-hover:scale-110 transition-transform"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      <span class="font-medium">hello@moinax.com</span>
+    </a>
+
+    <a
+      href="https://www.moinax.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center gap-3 text-slate-300 hover:text-cyan-400 transition-colors group"
+    >
+      {/* Globe icon */}
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400 group-hover:scale-110 transition-transform"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+      <span class="font-medium">moinax.com</span>
+    </a>
+
+    <div class="flex items-center gap-3 text-slate-400">
+      {/* MapPin icon */}
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-400"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+      <span>{t(locale, 'contact.location')}</span>
+    </div>
+
+    <div class="flex items-center gap-3 text-slate-400">
+      {/* Languages icon */}
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-400"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg>
+      <span>{t(locale, 'contact.languages')}</span>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,84 @@
+---
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { t } from '../i18n/t';
+import type { Locale } from '../i18n/index';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const links = [
+  { label: t(locale, 'nav.about'), href: '#about' },
+  { label: t(locale, 'nav.experience'), href: '#experience' },
+  { label: t(locale, 'nav.skills'), href: '#skills' },
+  { label: t(locale, 'nav.contact'), href: '#contact' },
+];
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-bg-deep/80 border-b border-white/5 animate-fade-in-down">
+  <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href={`/${locale}/`} class="text-lg font-bold tracking-tight hover:text-cyan-400 transition-colors">
+      J<span class="text-gradient">P</span>
+    </a>
+
+    {/* Desktop */}
+    <div class="hidden md:flex items-center gap-8">
+      {links.map((l) => (
+        <a href={l.href} class="text-sm text-slate-400 hover:text-slate-100 transition-colors">
+          {l.label}
+        </a>
+      ))}
+      <div class="w-px h-4 bg-white/10"></div>
+      <LanguageSwitcher locale={locale} />
+    </div>
+
+    {/* Mobile toggle */}
+    <button id="nav-toggle" class="md:hidden text-slate-400 hover:text-white" aria-label="Menu">
+      <svg id="nav-icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      <svg id="nav-icon-close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+
+  {/* Mobile menu */}
+  <div id="nav-mobile" class="hidden md:hidden border-t border-white/5 bg-bg-deep/95 backdrop-blur-md">
+    <div class="flex flex-col px-6 py-4 gap-4">
+      {links.map((l) => (
+        <a href={l.href} class="nav-mobile-link text-slate-400 hover:text-white transition-colors">
+          {l.label}
+        </a>
+      ))}
+      <div class="h-px bg-white/10 my-2"></div>
+      <div class="flex justify-center">
+        <LanguageSwitcher locale={locale} size="mobile" />
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script is:inline>
+  (function() {
+    var toggle = document.getElementById('nav-toggle');
+    var mobile = document.getElementById('nav-mobile');
+    var iconMenu = document.getElementById('nav-icon-menu');
+    var iconClose = document.getElementById('nav-icon-close');
+    if (!toggle || !mobile || !iconMenu || !iconClose) return;
+
+    toggle.addEventListener('click', function() {
+      var isHidden = mobile.classList.contains('hidden');
+      mobile.classList.toggle('hidden', !isHidden);
+      iconMenu.classList.toggle('hidden', isHidden);
+      iconClose.classList.toggle('hidden', !isHidden);
+    });
+
+    // Close mobile menu when clicking a link
+    mobile.querySelectorAll('.nav-mobile-link').forEach(function(link) {
+      link.addEventListener('click', function() {
+        mobile.classList.add('hidden');
+        iconMenu.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      });
+    });
+  })();
+</script>

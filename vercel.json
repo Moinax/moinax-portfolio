@@ -1,0 +1,21 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "header", "key": "accept-language", "value": "^fr" }],
+      "destination": "/fr/",
+      "statusCode": 302
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "header", "key": "accept-language", "value": "^nl" }],
+      "destination": "/nl/",
+      "statusCode": 302
+    },
+    {
+      "source": "/",
+      "destination": "/en/",
+      "statusCode": 302
+    }
+  ]
+}

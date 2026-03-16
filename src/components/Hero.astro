@@ -1,0 +1,62 @@
+---
+import { yearsOfExperience } from '../lib/constants';
+import { t } from '../i18n/t';
+import type { Locale } from '../i18n/index';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<section class="min-h-[85vh] flex flex-col justify-center items-start space-y-8 py-20 relative">
+  {/* Ambient glow */}
+  <div class="absolute top-1/4 -left-32 w-96 h-96 bg-indigo-600/10 rounded-full blur-[128px] pointer-events-none"></div>
+  <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-cyan-600/10 rounded-full blur-[128px] pointer-events-none"></div>
+
+  <div class="animate-fade-in-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm font-medium">
+    {/* Bot icon (lucide) */}
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+    <span>{t(locale, 'hero.badge')}</span>
+  </div>
+
+  <div class="space-y-6 max-w-4xl">
+    <h1 class="animate-fade-in-up animation-delay-100 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05]">
+      Jérôme Poskin
+    </h1>
+
+    <p class="animate-fade-in-up animation-delay-150 text-2xl sm:text-3xl md:text-4xl font-bold text-gradient leading-tight">
+      {t(locale, 'hero.tagline')}
+    </p>
+
+    <p class="animate-fade-in-up animation-delay-250 text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl">
+      {t(locale, 'hero.description', { years: yearsOfExperience })}
+    </p>
+  </div>
+
+  <div class="animate-fade-in-up animation-delay-350 flex flex-wrap gap-6 pt-4">
+    <div class="flex items-center gap-2 text-slate-300">
+      {/* Code2 icon */}
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+      <span class="font-medium">{t(locale, 'hero.react_expert')}</span>
+    </div>
+    <div class="w-px h-6 bg-slate-700"></div>
+    <div class="flex items-center gap-2 text-slate-300">
+      {/* Sparkles icon */}
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-cyan-400"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
+      <span class="font-medium">{t(locale, 'hero.ai_workflow')}</span>
+    </div>
+    <div class="w-px h-6 bg-slate-700"></div>
+    <div class="flex items-center gap-2 text-slate-300">
+      <span class="font-medium text-slate-400">{t(locale, 'hero.xp_years', { years: yearsOfExperience })}</span>
+    </div>
+  </div>
+
+  <div class="animate-fade-in animation-delay-1000 absolute bottom-8 left-1/2 -translate-x-1/2">
+    <a href="#about" class="text-slate-600 hover:text-cyan-400 transition-colors">
+      {/* ArrowDown icon */}
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="animate-bounce"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+    </a>
+  </div>
+</section>

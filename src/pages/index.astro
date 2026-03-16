@@ -1,9 +1,31 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { App } from '../components/App';
+// Fallback redirect for non-Vercel environments.
+// On Vercel, vercel.json handles the Accept-Language redirect.
+// This page serves as a static fallback with meta refresh + JS.
 ---
 
-<!-- TODO v2: i18n page title per locale -->
-<Layout title="Jérôme Poskin | Frontend Lead & AI-Enhanced Developer">
-	<App client:load />
-</Layout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0;url=/en/" />
+    <title>Redirecting…</title>
+    <script is:inline>
+      (function() {
+        var stored = localStorage.getItem('preferred-locale');
+        var locales = ['en', 'fr', 'nl'];
+        if (stored && locales.indexOf(stored) !== -1) {
+          window.location.replace('/' + stored + '/');
+          return;
+        }
+        var lang = (navigator.language || '').split('-')[0].toLowerCase();
+        if (locales.indexOf(lang) !== -1) {
+          window.location.replace('/' + lang + '/');
+        } else {
+          window.location.replace('/en/');
+        }
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

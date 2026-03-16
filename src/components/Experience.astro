@@ -1,0 +1,97 @@
+---
+import { t } from '../i18n/t';
+import type { Locale } from '../i18n/index';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+interface Job {
+  key: string;
+  company: string;
+  tech: string[];
+  link?: { label: string; url: string };
+  highlight?: boolean;
+}
+
+const jobs: Job[] = [
+  { key: 'mbrella', company: 'Mbrella', tech: ['React', 'TypeScript', 'Design System'], link: { label: 'mbrella.eu', url: 'https://www.mbrella.eu' }, highlight: true },
+  { key: 'theglue', company: 'The Glue', tech: ['React', 'Node.js', 'Fintech'], link: { label: 'theglue.com', url: 'https://theglue.com/' } },
+  { key: 'apex', company: 'Apex Legends France', tech: ['Discord.js', 'Heroku', 'Node.js'] },
+  { key: 'tomorrowland', company: 'Hilarious × Proximus × Tomorrowland', tech: ['React', 'Next.js', 'OpenSeaDragon'] },
+  { key: 'elium', company: 'Elium', tech: ['React', 'Relay', 'GraphQL', 'Webpack'], link: { label: 'elium.com', url: 'https://www.elium.com/' } },
+  { key: 'emakina2', company: 'Emakina', tech: ['React', 'Electron', 'Webpack'], link: { label: 'emakina.com', url: 'https://www.emakina.com/' } },
+  { key: 'jackmedia', company: 'Jack Media', tech: ['React', 'Redux', 'Sass', 'Webpack'] },
+  { key: 'snowcap', company: 'Snowcap', tech: ['PHP', 'Drupal', 'Symfony', 'JavaScript'], highlight: true },
+  { key: 'emakina1', company: 'Emakina', tech: ['Drupal', 'PHP', 'JavaScript'] },
+  { key: 'symex', company: 'Symex Chartinvestor', tech: ['C++', 'Delphi', 'PHP', 'JavaScript'] },
+];
+---
+
+<section id="experience" class="py-24 space-y-12">
+  <h2 class="animate-on-scroll text-4xl font-bold">
+    {t(locale, 'experience.title')}<span class="text-gradient">.</span>
+  </h2>
+
+  <div class="relative space-y-0">
+    {/* Timeline line */}
+    <div class="absolute left-[7px] top-2 bottom-2 w-px bg-gradient-to-b from-cyan-500/50 via-indigo-500/30 to-transparent"></div>
+
+    {jobs.map((job, i) => (
+      <div
+        class="animate-on-scroll relative pl-10 pb-10 group"
+        style={`--animation-delay: ${i * 50}ms`}
+      >
+        {/* Dot */}
+        <div
+          class:list={[
+            'absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full border-2 transition-colors',
+            job.highlight
+              ? 'border-cyan-400 bg-cyan-400/20'
+              : 'border-slate-600 bg-bg-deep group-hover:border-cyan-400/50',
+          ]}
+        />
+
+        <div class="space-y-2">
+          <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3">
+            <span class="text-sm text-slate-500 font-mono shrink-0">
+              {t(locale, `experience.${job.key}.period`)}
+            </span>
+            <h3 class="text-xl font-bold">
+              {job.company}
+              <span class="text-slate-500 font-normal text-base ml-2">
+                — {t(locale, `experience.${job.key}.role`)}
+              </span>
+            </h3>
+          </div>
+
+          <p class="text-slate-400 text-sm leading-relaxed max-w-2xl">
+            {t(locale, `experience.${job.key}.description`)}
+          </p>
+
+          <div class="flex flex-wrap items-center gap-2 pt-1">
+            {job.tech.map((tech) => (
+              <span class="text-xs px-2 py-0.5 rounded-md bg-white/5 text-slate-400 border border-white/5">
+                {tech}
+              </span>
+            ))}
+            {job.link && (
+              <a
+                href={job.link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 text-xs text-cyan-400/70 hover:text-cyan-400 transition-colors ml-1"
+              >
+                {/* ExternalLink icon */}
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                {job.link.label}
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
