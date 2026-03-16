@@ -14,7 +14,7 @@ const { locale, size = 'desktop' } = Astro.props;
     <span class="flex items-center">
       <a
         href={`/${l}/`}
-        aria-label={localeNames[l]}
+        aria-label={`${localeLabels[l]} – ${localeNames[l]}`}
         aria-current={locale === l ? 'page' : undefined}
         class:list={[
           'font-medium tracking-wide px-2 py-1 rounded-md transition-all duration-200',
@@ -22,7 +22,7 @@ const { locale, size = 'desktop' } = Astro.props;
           size === 'mobile' ? 'text-sm min-h-[44px] min-w-[44px] flex items-center justify-center' : 'text-xs',
           locale === l
             ? 'text-cyan-400 bg-cyan-400/10 font-semibold'
-            : 'text-slate-500 hover:text-slate-200 hover:bg-white/5',
+            : 'text-slate-400 hover:text-slate-200 hover:bg-white/5',
         ]}
         data-locale={l}
       >

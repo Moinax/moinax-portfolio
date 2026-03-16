@@ -24,6 +24,23 @@ const siteUrl = 'https://www.moinax.com';
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
+    <meta name="robots" content="index, follow" />
+
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Jérôme Poskin",
+      "url": siteUrl,
+      "jobTitle": "Senior Full-Stack Developer",
+      "email": "hello@moinax.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "BE"
+      },
+      "knowsLanguage": ["fr", "en", "nl"],
+      "sameAs": []
+    })} />
 
     <!-- hreflang alternate links -->
     {locales.map((l) => (
