@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://www.moinax.com',
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'fr', 'nl'],

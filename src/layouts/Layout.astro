@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import Analytics from '@vercel/analytics/astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
-import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getAbsoluteLocaleUrl } from 'astro:i18n';
 import type { Locale } from '../i18n/index';
 
 interface Props {
@@ -24,11 +24,14 @@ const { title, description = '' } = Astro.props;
     <title>{title}</title>
     <meta name="description" content={description} />
 
-    {/* hreflang alternate links */}
+    {/* Canonical link for this locale */}
+    <link rel="canonical" href={getAbsoluteLocaleUrl(locale, '')} />
+
+    {/* hreflang alternate links — absolute URLs required by Google */}
     {(['en', 'fr', 'nl'] as const).map((l) => (
-      <link rel="alternate" hreflang={l} href={getRelativeLocaleUrl(l, '')} />
+      <link rel="alternate" hreflang={l} href={getAbsoluteLocaleUrl(l, '')} />
     ))}
-    <link rel="alternate" hreflang="x-default" href="/en/" />
+    <link rel="alternate" hreflang="x-default" href={getAbsoluteLocaleUrl('en', '')} />
 
     {/* Self-hosted Inter font — preload weight 400 */}
     <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
