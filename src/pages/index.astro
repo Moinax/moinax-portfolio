@@ -1,9 +1,30 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { App } from '../components/App';
+// Fallback for non-Vercel environments.
+// On Vercel, vercel.json handles the / → /{locale}/ redirect at the edge.
+// This page is a static fallback with meta refresh + JS.
 ---
-
-<!-- TODO v2: i18n page title per locale -->
-<Layout title="Jérôme Poskin | Frontend Lead & AI-Enhanced Developer">
-	<App client:load />
-</Layout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0;url=/en/" />
+    <title>Redirecting…</title>
+    <script is:inline>
+      (function () {
+        var locales = ['en', 'fr', 'nl'];
+        var stored = null;
+        try { stored = document.cookie.split(';').map(function(c){return c.trim()}).find(function(c){return c.startsWith('preferred-locale=')}); } catch(e) {}
+        if (stored) {
+          var val = stored.split('=')[1];
+          if (locales.indexOf(val) !== -1) { window.location.replace('/' + val + '/'); return; }
+        }
+        var lang = (navigator.language || '').split('-')[0].toLowerCase();
+        if (locales.indexOf(lang) !== -1) { window.location.replace('/' + lang + '/'); return; }
+        window.location.replace('/en/');
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to <a href="/en/">/en/</a>…</p>
+  </body>
+</html>

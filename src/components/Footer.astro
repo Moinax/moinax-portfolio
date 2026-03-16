@@ -1,0 +1,14 @@
+---
+import type { Locale } from '../i18n/index';
+import { t } from '../i18n/t';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<footer class="mt-24 pb-12 text-center text-slate-500 text-sm">
+  <p>{t(locale, 'footer.copyright', { year: new Date().getFullYear() })}</p>
+</footer>
