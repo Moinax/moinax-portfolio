@@ -52,9 +52,13 @@
 }
 
 @layer base {
+  html {
+    overflow-x: hidden;
+  }
   body {
     @apply bg-bg-deep text-slate-200 antialiased;
     font-feature-settings: "ss01", "ss02", "cv01", "cv03";
+    overflow-x: hidden;
   }
 }
 
