@@ -65,9 +65,9 @@ const links = [
   const mobileLinks = document.querySelectorAll('.mobile-link');
 
   function toggleMenu() {
-    const open = menu.classList.toggle('hidden');
-    iconMenu.classList.toggle('hidden', !open);
-    iconClose.classList.toggle('hidden', open);
+    const isNowHidden = menu.classList.toggle('hidden');
+    iconMenu.classList.toggle('hidden', !isNowHidden);
+    iconClose.classList.toggle('hidden', isNowHidden);
   }
 
   toggle.addEventListener('click', toggleMenu);

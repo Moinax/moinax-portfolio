@@ -9,7 +9,7 @@ interface Props {
 const { locale, size = 'desktop' } = Astro.props;
 ---
 
-<div role="group" aria-label="Language selector" class:list={['flex items-center gap-1', { 'gap-3': size === 'mobile' }]}>
+<div role="group" aria-label="Language selector" class:list={['flex items-center', size === 'mobile' ? 'gap-3' : 'gap-1']}>
   {locales.map((l, i) => (
     <span class="flex items-center">
       <a
