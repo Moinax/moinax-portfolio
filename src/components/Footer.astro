@@ -9,6 +9,6 @@ interface Props {
 const { locale } = Astro.props;
 ---
 
-<footer class="mt-24 pb-12 text-center text-slate-500 text-sm">
+<footer class="mt-24 pb-12 text-center text-slate-400 text-sm">
   <p>{t(locale, 'footer.copyright', { year: new Date().getFullYear() })}</p>
 </footer>
