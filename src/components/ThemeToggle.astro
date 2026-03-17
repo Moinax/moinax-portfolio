@@ -1,0 +1,73 @@
+---
+/**
+ * ThemeToggle — Sun/Moon icon toggle for light/dark mode.
+ * Three internal states: system / light / dark.
+ * Persisted via localStorage('theme').
+ */
+---
+
+<button
+  id="theme-toggle"
+  type="button"
+  class="relative w-9 h-9 flex items-center justify-center rounded-lg text-slate-400 hover:text-slate-200 hover:bg-white/10 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400/50"
+  aria-label="Toggle theme"
+>
+  <!-- Sun icon (visible in dark mode → click to go light) -->
+  <svg id="icon-sun" class="w-[18px] h-[18px] transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2" /><path d="M12 20v2" />
+    <path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" />
+    <path d="M2 12h2" /><path d="M20 12h2" />
+    <path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" />
+  </svg>
+  <!-- Moon icon (visible in light mode → click to go dark) -->
+  <svg id="icon-moon" class="w-[18px] h-[18px] hidden transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+  </svg>
+</button>
+
+<script>
+  const btn = document.getElementById('theme-toggle')!;
+  const iconSun = document.getElementById('icon-sun')!;
+  const iconMoon = document.getElementById('icon-moon')!;
+
+  function isLight(): boolean {
+    return document.documentElement.classList.contains('light');
+  }
+
+  function updateIcons() {
+    const light = isLight();
+    iconSun.classList.toggle('hidden', light);
+    iconMoon.classList.toggle('hidden', !light);
+    btn.setAttribute('aria-label', light ? 'Switch to dark mode' : 'Switch to light mode');
+  }
+
+  function setTheme(mode: 'light' | 'dark') {
+    if (mode === 'light') {
+      document.documentElement.classList.add('light');
+    } else {
+      document.documentElement.classList.remove('light');
+    }
+    localStorage.setItem('theme', mode);
+    updateIcons();
+  }
+
+  btn.addEventListener('click', () => {
+    setTheme(isLight() ? 'dark' : 'light');
+  });
+
+  // Listen for system preference changes (only when no explicit choice)
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+      if (e.matches) {
+        document.documentElement.classList.remove('light');
+      } else {
+        document.documentElement.classList.add('light');
+      }
+      updateIcons();
+    }
+  });
+
+  // Init icons on load
+  updateIcons();
+</script>

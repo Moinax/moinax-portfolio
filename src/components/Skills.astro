@@ -25,12 +25,12 @@ const skillGroups = [
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
     {skillGroups.map((group, i) => (
       <div class="glass-card p-6 space-y-4 hover:border-white/20 transition-colors scroll-fade-up" style={`--delay: ${i * 100}ms;`}>
-        <h3 class="text-sm font-bold uppercase tracking-wider text-cyan-400">
+        <h3 class="skill-category text-sm font-bold uppercase tracking-wider text-cyan-400">
           {t(locale, group.categoryKey)}
         </h3>
         <div class="flex flex-wrap gap-2">
           {group.items.map((item) => (
-            <span class="text-sm px-3 py-1 rounded-lg bg-white/5 text-slate-300 border border-white/5 hover:border-cyan-500/30 hover:text-cyan-300 transition-colors cursor-default">
+            <span class="skill-tag text-sm px-3 py-1 rounded-lg bg-white/5 text-slate-300 border border-white/5 hover:border-cyan-500/30 hover:text-cyan-300 transition-colors cursor-default">
               {item}
             </span>
           ))}
