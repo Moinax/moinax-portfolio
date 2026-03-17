@@ -21,8 +21,8 @@ const { locale, size = 'desktop' } = Astro.props;
           'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400/50',
           size === 'mobile' ? 'text-sm min-h-[44px] min-w-[44px] flex items-center justify-center' : 'text-xs',
           locale === l
-            ? 'text-cyan-400 bg-cyan-400/10 font-semibold'
-            : 'text-slate-400 hover:text-slate-200 hover:bg-white/5',
+            ? 'lang-switch-active text-cyan-400 bg-cyan-400/10 font-semibold'
+            : 'lang-switch-inactive text-slate-400 hover:text-slate-200 hover:bg-white/5',
         ]}
         data-locale={l}
       >

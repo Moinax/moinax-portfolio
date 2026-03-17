@@ -1,0 +1,104 @@
+---
+/**
+ * ThemeToggle — Sun/Moon/Monitor icon toggle for light/dark/system mode.
+ * Three states: system → light → dark → system.
+ * Persisted via localStorage('theme'). System mode removes the key.
+ */
+---
+
+<button
+  data-theme-toggle
+  type="button"
+  class="theme-toggle relative w-9 h-9 flex items-center justify-center rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-500/10 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400/50"
+  aria-label="Toggle theme"
+>
+  <!-- Sun icon (visible in dark mode) -->
+  <svg data-icon="sun" class="w-[18px] h-[18px] transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2" /><path d="M12 20v2" />
+    <path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" />
+    <path d="M2 12h2" /><path d="M20 12h2" />
+    <path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" />
+  </svg>
+  <!-- Moon icon (visible in light mode) -->
+  <svg data-icon="moon" class="w-[18px] h-[18px] hidden transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+  </svg>
+  <!-- Monitor icon (visible in system mode) -->
+  <svg data-icon="monitor" class="w-[18px] h-[18px] hidden transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+    <rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8" /><path d="M12 17v4" />
+  </svg>
+</button>
+
+<script>
+  // State cycle: system → light → dark → system
+  type ThemeState = 'system' | 'light' | 'dark';
+  const CYCLE: ThemeState[] = ['system', 'light', 'dark'];
+
+  function getStoredState(): ThemeState {
+    const stored = localStorage.getItem('theme');
+    if (stored === 'light' || stored === 'dark') return stored;
+    return 'system';
+  }
+
+  function systemPrefersDark(): boolean {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  function applyState(state: ThemeState) {
+    const isLight = state === 'light' || (state === 'system' && !systemPrefersDark());
+    if (isLight) {
+      document.documentElement.classList.add('light');
+    } else {
+      document.documentElement.classList.remove('light');
+    }
+
+    if (state === 'system') {
+      localStorage.removeItem('theme');
+    } else {
+      localStorage.setItem('theme', state);
+    }
+
+    // Update all toggle instances (desktop + mobile)
+    document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach((btn) => {
+      const sun = btn.querySelector('[data-icon="sun"]')!;
+      const moon = btn.querySelector('[data-icon="moon"]')!;
+      const monitor = btn.querySelector('[data-icon="monitor"]')!;
+
+      sun.classList.add('hidden');
+      moon.classList.add('hidden');
+      monitor.classList.add('hidden');
+
+      if (state === 'system') {
+        monitor.classList.remove('hidden');
+        btn.setAttribute('aria-label', 'Theme: system — click for light mode');
+      } else if (state === 'light') {
+        moon.classList.remove('hidden');
+        btn.setAttribute('aria-label', 'Theme: light — click for dark mode');
+      } else {
+        sun.classList.remove('hidden');
+        btn.setAttribute('aria-label', 'Theme: dark — click for system mode');
+      }
+    });
+  }
+
+  // Attach click handlers to all toggle buttons
+  document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const current = getStoredState();
+      const idx = CYCLE.indexOf(current);
+      const next = CYCLE[(idx + 1) % CYCLE.length];
+      applyState(next);
+    });
+  });
+
+  // Listen for system preference changes (only in system mode)
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    if (getStoredState() === 'system') {
+      applyState('system');
+    }
+  });
+
+  // Init on load
+  applyState(getStoredState());
+</script>

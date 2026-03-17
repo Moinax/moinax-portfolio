@@ -1,5 +1,6 @@
 ---
 import LanguageSwitcher from './LanguageSwitcher.astro';
+import ThemeToggle from './ThemeToggle.astro';
 import type { Locale } from '../i18n/index';
 import { t } from '../i18n/t';
 
@@ -17,39 +18,43 @@ const links = [
 ];
 ---
 
-<nav aria-label="Main navigation" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-bg-deep/80 border-b border-white/5 fade-in-down">
+<nav aria-label="Main navigation" class="nav-bar fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-bg-deep/80 border-b border-white/5 fade-in-down">
   <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href={`/${locale}/`} class="text-lg font-bold tracking-tight hover:text-cyan-400 transition-colors" aria-label="JP – Jérôme Poskin Home">
+    <a href={`/${locale}/`} class="nav-logo text-lg font-bold tracking-tight hover:text-cyan-400 transition-colors" aria-label="JP – Jérôme Poskin Home">
       J<span class="text-gradient">P</span>
     </a>
 
     <!-- Desktop -->
     <div class="hidden md:flex items-center gap-8">
       {links.map((l) => (
-        <a href={l.href} class="text-sm text-slate-400 hover:text-slate-100 transition-colors">
+        <a href={l.href} class="nav-link text-sm text-slate-400 hover:text-slate-100 transition-colors">
           {l.label}
         </a>
       ))}
-      <div class="w-px h-4 bg-white/10"></div>
+      <div class="nav-divider w-px h-4 bg-white/10"></div>
       <LanguageSwitcher locale={locale} />
+      <ThemeToggle />
     </div>
 
     <!-- Mobile toggle -->
-    <button id="nav-toggle" class="md:hidden text-slate-400 hover:text-white" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
-      <svg id="icon-menu" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
-      <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-    </button>
+    <div class="flex items-center gap-2 md:hidden">
+      <ThemeToggle />
+      <button id="nav-toggle" class="text-slate-400 hover:text-white" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg id="icon-menu" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+    </div>
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-bg-deep/95 backdrop-blur-md">
+  <div id="mobile-menu" class="mobile-menu-panel hidden md:hidden border-t border-white/5 bg-bg-deep/95 backdrop-blur-md">
     <div class="flex flex-col px-6 py-4 gap-4">
       {links.map((l) => (
         <a href={l.href} class="mobile-link text-slate-400 hover:text-white transition-colors">
           {l.label}
         </a>
       ))}
-      <div class="h-px bg-white/10 my-2"></div>
+      <div class="nav-divider h-px bg-white/10 my-2"></div>
       <div class="flex justify-center">
         <LanguageSwitcher locale={locale} size="mobile" />
       </div>
