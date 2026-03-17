@@ -340,6 +340,7 @@ footer,
 }
 
 /* Initial load animations (Hero, Navbar) */
+/* Content visible by default (opacity: 1) — animation starts from 0 via @keyframes */
 .fade-up {
   animation: fadeUp 0.6s ease-out;
   animation-delay: var(--delay, 0ms);
@@ -357,9 +358,10 @@ footer,
 }
 
 /* Scroll-triggered animations via IntersectionObserver */
+/* Content visible by default — JS adds .is-visible to trigger animation */
 .scroll-fade-up,
 .scroll-fade-left {
-  opacity: 0;
+  /* opacity: 1 by default — no opacity: 0 here (breaks Lighthouse FCP + hides content until JS runs) */
 }
 
 .scroll-fade-up.is-visible {
